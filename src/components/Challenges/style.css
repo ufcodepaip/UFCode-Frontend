@@ -1,0 +1,86 @@
+
+.text-container {
+    grid-area: description;
+    height: 130px;
+}
+
+.textbox {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+}
+
+.box{
+    border: #ffffff;
+    background-color: #ffffff;
+    border-radius: 5px;
+} 
+
+.gridName{
+    grid-area: gridName;
+    width: 100px;
+    height: 110px;
+    padding: 10px;
+}
+
+
+.gridDesc{
+    grid-area: gridDesc;
+    width: 580px;
+    height: 110px;
+    padding: 10px;
+}
+
+.gridEntrada{
+    grid-area: gridEntrada;
+    width: 80px;
+    height: 110px;
+    padding: 10px;
+}
+.gridSaida{
+    grid-area: gridSaida;
+    width: 120px;
+    height: 110px;
+    padding: 10px;
+}
+.info{
+    display: inline;
+}
+.text{
+    margin-left: 35px;
+    display: grid;
+    grid-template-areas: 'gridName gridDesc gridEntrada gridSaida' 'gridName gridDesc gridEntrada gridSaida';
+    grid-gap:10px;
+    font: 700 12px Arial ;
+    color:#48B8FA;
+}
+
+.btn-questao:hover {
+    border: 2px solid #48B8FA;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #48B8FA;
+}
+
+.btn-questao {
+    width: 120px;
+    height: 40px;
+    transition: 0.3s;
+    font: 700 18px Poppins;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #48B8FA;
+    color: #ffffff;
+}
+
+.text-questao {
+    display: flex;
+    justify-content: center;
+    color: #48B8FA;
+    font: 700 25px Poppins;
+}
