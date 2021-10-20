@@ -50,7 +50,7 @@ function Challenges(props) {
         return (
             <span className='text'>
                 <div className='gridName box'>
-                    <h3>Nome e Area</h3>
+                    <h3 className="boxTitle">Nome e Area</h3>
                     <span className='info'>
                         {currentQuest.name}
                     </span>
@@ -60,19 +60,19 @@ function Challenges(props) {
                     </span>
                 </div>
                 <div className='gridDesc box'>
-                    <h3>Descrição</h3>
+                    <h3 className="boxTitle">Descrição</h3>
                     <span className='info'>
                         {currentQuest.description}
                     </span>
                 </div>
                 <div className='gridEntrada box'>
-                    <h3>Entrada</h3>
+                    <h3 className="boxTitle">Entrada</h3>
                     <span className='info'>
                         {currentQuest.input}
                     </span>
                 </div>
                 <div className='gridSaida box'>
-                    <h3>Saída</h3>
+                    <h3 className="boxTitle">Saída</h3>
                     <span className='info'>
                         {currentQuest.output}
                     </span>
