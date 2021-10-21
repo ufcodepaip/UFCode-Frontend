@@ -52,7 +52,7 @@
     grid-template-areas: 'gridName gridDesc gridEntrada gridSaida' 'gridName gridDesc gridEntrada gridSaida';
     grid-gap:10px;
     font: 700 12px Arial ;
-    color:#48B8FA;
+    color:#000000;
 }
 
 .btn-questao:hover {
