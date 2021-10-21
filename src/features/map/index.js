@@ -1,5 +1,5 @@
 import React from 'react'
-import { SPRITE_SIZE, GRS, TRE, ROK, CHS, MAP_HEIGHT, MAP_WIDTH, QCN, QST, CLN } from '../../config/constants'
+import { SPRITE_SIZE, GRS, CHS, MAP_HEIGHT, MAP_WIDTH, QCN, QST, CLN } from '../../config/constants'
 import './style.css'
 import { connect } from 'react-redux'
 import { setTiles } from './environment'

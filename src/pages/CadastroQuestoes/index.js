@@ -18,7 +18,7 @@ function MainPage() {
     async function handleQuestionRegister(e) {
         e.preventDefault()
 
-        if (name != "" && description != "" && input != "" && output != "") {
+        if (name !== "" && description !== "" && input !== "" && output !== "") {
             const jsonData = {
                 name, area, description, input, output, posX, posY
             }

@@ -19,7 +19,6 @@ function Challenges(props) {
         __v: null,
         posX: null,
         posY: null
-
     }
 
     const [currentQuest, setCurrentQuest] = useState(initialState)

@@ -1,4 +1,4 @@
-import {CLN, QCN, QST} from '../../../config/constants'
+import {CLN,QST} from '../../../config/constants'
 
 /*export const tiles = [
     [CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN,CLN],

@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import api from '../../services/api'
 import { LOGIN } from '../../config/constants'
 
-import { useHistory } from 'react-router-dom'
 
 function Challenges(props) {
     const challenge = props.challengeId
@@ -14,7 +13,6 @@ function Challenges(props) {
     const studentId = localStorage.getItem(LOGIN) // props.id// props.studentId;
     const [code, setCode] = useState("")
 
-    const history = useHistory();
     async function handleCodeSubmission(e) {
         e.preventDefault()
         console.log('props.chllengeId: ' + props.challengeId)
