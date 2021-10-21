@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 import MainGame from '../../components/MainGame'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { useState } from 'react'
 import api from '../../services/api'
 
