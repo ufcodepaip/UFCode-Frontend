@@ -1,4 +1,3 @@
-
 .text-container {
     grid-area: description;
     height: 130px;
@@ -23,7 +22,6 @@
     padding: 10px;
 }
 
-
 .gridDesc{
     grid-area: gridDesc;
     width: 580px;
@@ -37,15 +35,18 @@
     height: 110px;
     padding: 10px;
 }
+
 .gridSaida{
     grid-area: gridSaida;
     width: 120px;
     height: 110px;
     padding: 10px;
 }
+
 .info{
     display: inline;
 }
+
 .text{
     margin-left: 35px;
     display: grid;
