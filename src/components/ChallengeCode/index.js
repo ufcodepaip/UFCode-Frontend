@@ -35,7 +35,7 @@ function Challenges(props) {
     return (
         <form onSubmit={handleCodeSubmission} id='form-code'>
             <div className='code-container'>
-                <p className='text-questao'>CÓDIGO VENTURA :</p>
+                <p className='text-questao'> UFCODE: </p>
                 <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder={placeholder} rows='5' cols='5' className='textarea-questao' />
                 <input type='button' onClick={e => setCode("")} className='btn-questao' value='Limpar' />
                 <button type='submit' value='enviar' className='btn-questao' > Enviar </button>
