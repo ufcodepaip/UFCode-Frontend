@@ -1,11 +1,10 @@
 import React from 'react'
 import './style.css'
-import { useState } from 'react';
+import { useState } from 'react'
 import { connect } from 'react-redux'
 
 import api from '../../services/api'
 import { LOGIN } from '../../config/constants'
-
 
 function Challenges(props) {
     const challenge = props.challengeId
@@ -30,7 +29,6 @@ function Challenges(props) {
             alert("Erro. Razão do erro: \n\n\n" + submissionResult.error)
         }
     }
-    // console.log('testando challengerCode: ')
 
     const placeholder = "Ao ler a entrada, use sempre input(), sem nada dentro dos parênteses. Exemplo: int(input()) para ler um número.\nSeu programa não deve conter acentos. Caso contrário, o sistema irá apontar erro em sua solução.\nAs saídas do seu programa devem seguir o padrão exibido em 'Saída'\n\nBoa sorte!"
 
@@ -43,10 +41,8 @@ function Challenges(props) {
                 <button type='submit' value='enviar' className='btn-questao' > Enviar </button>
             </div>
         </form>
-
     )
 }
-
 
 function mapStateToProps(state) {
     return {
