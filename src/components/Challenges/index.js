@@ -1,12 +1,10 @@
 import React from 'react'
 import './style.css'
 import { connect } from 'react-redux'
-import { useState, useEffect } from 'react';
-import { dispatchQuest } from './dispatchQuest';
+import { useState, useEffect } from 'react'
+import { dispatchQuest } from './dispatchQuest'
 import api from '../../services/api'
 import { LOGIN, QUEST } from '../../config/constants'
-
-
 
 function Challenges(props) {
     const initialState = {
@@ -79,6 +77,7 @@ function Challenges(props) {
             </span>
         )
     }
+    
     const renderChallenge = () => {
         return (
             <table>
@@ -110,8 +109,6 @@ function Challenges(props) {
                 {renderQuest()}
             </div>
         </div>
-
-
     )
 }
 
@@ -122,7 +119,6 @@ function mapStateToProps(state) {
         id: state.player.id,
     }
 }
-
 
 function mapDispatchToProps(dispatch) {
     return {

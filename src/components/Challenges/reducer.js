@@ -1,4 +1,5 @@
 import { QUEST } from '../../config/constants'
+
 const initialState = {
     id: "cachorro 123",
     name: null,
@@ -9,7 +10,6 @@ const initialState = {
     __v: null,
     posX: null,
     posY: null
-
 }
 
 const challengeReducer = (state = initialState, action) => {

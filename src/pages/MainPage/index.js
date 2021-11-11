@@ -28,14 +28,14 @@ function MainPage() {
 							<option selected>Assunto</option>
 							<option value="1">Estrutura de Repetição</option>
 							<option value="2">Estrutura Condicional</option>
-							<option value="3">funcções</option>
+							<option value="3">Funções</option>
 						</select>
 					</div>
 				</div>
 				<div className="row justify-content-center">
 					<div className="col-md-2">
 						<div className="row justify-content-center">
-								<button type="button" onClick={e=>history.push('/game')} class="btn btn-danger">Jogar</button>
+							<button type="button" onClick={() => history.push('/game')} class="btn btn-danger">Jogar</button>
 						</div>
 					</div>
 				</div>
