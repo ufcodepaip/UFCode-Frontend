@@ -17,7 +17,7 @@ function MainPage() {
 				<div className="row  justify-content-center px-4">
 					<div className="col-md-5 px-5">
 						<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Area</option>
+							<option selected>Curso</option>
 							<option value="1">Matematica</option>
 							<option value="2">Física</option>
 							<option value="3">Biologia</option>
@@ -25,7 +25,7 @@ function MainPage() {
 					</div>
 					<div className="col-md-5 px-5">
 						<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Assunto</option>
+							<option selected>Módulo</option>
 							<option value="1">Estrutura de Repetição</option>
 							<option value="2">Estrutura Condicional</option>
 							<option value="3">Funções</option>
