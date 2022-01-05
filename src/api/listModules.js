@@ -4,7 +4,7 @@ export function listModules(){
     return(
         axios({
             method: "GET",
-            url: "http://xxx",
+            url: "https://ufc-code.herokuapp.com/api/module",
             headers:{
                 "token": ""
             }
