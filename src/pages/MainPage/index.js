@@ -1,10 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./style.css";
 import MainGame from "../../components/MainGame";
 import { useHistory } from 'react-router-dom'
 
+import { listCourses } from '../../api/listCourses'
+import { listModules } from '../../api/listModules'
+
 function MainPage() {
   const history = useHistory();
+
+  const [cursos, setCurso] = useState([])
+  const [modulos, setModulo] = useState([])
+
+  useEffect(() => {
+	listCourses().then(response => {
+		setCurso(response.data)
+		console.log("test cursos: passed!")
+		console.log(response.data)
+		}).catch(error => console.log("test cursos: failed!", error))
+  }, [cursos])
+
+  useEffect(() => {
+	listModules().then(response => {
+		setModulo(response.data)
+		console.log("test Modulos: passed!")
+		console.log(response.data)
+		}).catch(error => console.log("test Modulos: failed!", error))
+  }, [modulos])
 
   return (
     <MainGame>
@@ -16,19 +38,25 @@ function MainPage() {
 				</div>
 				<div className="row  justify-content-center px-4">
 					<div className="col-md-5 px-5">
+						
 						<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Area</option>
-							<option value="1">Matematica</option>
-							<option value="2">Física</option>
-							<option value="3">Biologia</option>
+							<option selected>Curso</option>
+								{
+									cursos.map((curso) => (
+										<option value={curso.name} key={curso.id}> {curso.name} </option>
+									))
+								}
 						</select>
 					</div>
 					<div className="col-md-5 px-5">
+
 						<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Assunto</option>
-							<option value="1">Estrutura de Repetição</option>
-							<option value="2">Estrutura Condicional</option>
-							<option value="3">Funções</option>
+							<option selected>Módulo</option>
+								{
+									modulos.map((modulo) => (
+										<option value={modulo.name} key={modulo.id}> {modulo.name} </option>
+									))
+								}
 						</select>
 					</div>
 				</div>

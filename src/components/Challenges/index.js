@@ -78,31 +78,6 @@ function Challenges(props) {
         )
     }
     
-    const renderChallenge = () => {
-        return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Area</th>
-                        <th>Descrição</th>
-                        <th>Entrada</th>
-                        <th>Saída</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{currentQuest.name}</td>
-                        <td>{currentQuest.area}</td>
-                        <td>{currentQuest.description}</td>
-                        <td>{currentQuest.input}</td>
-                        <td>{currentQuest.output}</td>
-                    </tr>
-                </tbody>
-            </table>
-        )
-    }
-
     return (
         <div className='text-container'>
             <div className='textbox'>
