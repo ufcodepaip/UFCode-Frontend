@@ -2,28 +2,32 @@ import React from 'react'
 import './style.css'
 import { useState } from 'react'
 import { connect } from 'react-redux'
-
+import { submission } from '../../api/index'
 import api from '../../services/api'
 import { LOGIN } from '../../config/constants'
 
 function Challenges(props) {
     const challenge = props.challengeId
     // props.challenge;
-    const studentId = localStorage.getItem(LOGIN) // props.id// props.studentId;
+    const studentId = localStorage.getItem("name") // props.id// props.studentId;
     const [code, setCode] = useState("")
 
     async function handleCodeSubmission(e) {
         e.preventDefault()
-        console.log('props.chllengeId: ' + props.challengeId)
+        console.log(props.challengeId)
 
         const jsonData = {
-            challengeId: challenge.id, studentId, code
+            codeInput: code, 
+            student_id: studentId, 
+            problem_id: challenge.id, 
+            language_id: null
         }
 
         console.log(jsonData)
-        const response = await api.post("/submit", jsonData)
+        const response = await submission(jsonData)
         const submissionResult = response.data
-        if (submissionResult.result) {
+        if (submissionResult.result != 'false') {
+            console.log(submissionResult)
             alert("Sucesso!!!")
         } else {
             alert("Erro. Razão do erro: \n\n\n" + submissionResult.error)

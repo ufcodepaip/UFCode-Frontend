@@ -12,13 +12,10 @@ function MainPage(props) { //Tela inicial do jogo. Local de login.
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const history = useHistory();
-
-    const [requestPromise, setRequestPromise] = useState()
     async function handleLogin(e) {
         e.preventDefault();
         try{
             const studentJson = await api.post("/students/login", { login, password })
-            setRequestPromise(studentJson.data.studentId)
             history.push('/game')
             localStorage.setItem('LOGIN', studentJson.data.studentId)
             alert('Login Efetuado com sucesso, espere o jogo carregar')

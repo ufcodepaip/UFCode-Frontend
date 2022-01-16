@@ -3,40 +3,63 @@ import './style.css'
 import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { dispatchQuest } from './dispatchQuest'
-import api from '../../services/api'
-import { LOGIN, QUEST } from '../../config/constants'
+import { listProblems } from '../../api'
+import { QUEST } from '../../config/constants'
 
 function Challenges(props) {
     const initialState = {
-        id: null,
+        id: "cachorro 123",
         name: null,
-        area: null,
         description: null,
-        inputFile: null,
-        outputFile: null,
-        __v: null,
-        posX: null,
-        posY: null
+        input: null,
+        expectedOutput: null,
+        houseId: null,
+        positionX: null,
+        positionY: null,
+        difficultyId: null,
+        courses: null,
+        modules: null
     }
 
     const [currentQuest, setCurrentQuest] = useState(initialState)
     const [questList, setQuestList] = useState([])
-    const login = localStorage.getItem(LOGIN)
+    const login = localStorage.getItem("name")
+    const _course = localStorage.getItem("course")
+    const _module = localStorage.getItem("module")
+
     useEffect(() => {
-        api.get("/challenges")
-            .then(response => {
-                setQuestList(response.data)
-            })
+        listProblems(_course, _module).then(res => {
+            setQuestList(res.data)
+            console.log(res.data)
+        }).catch(error => {
+            console.log(error)
+        })
     }, [login])
 
     useEffect(() => {
+
+        let _currentQuest = null
+        const total = questList.length
+
+        if (props.position[0] == 512 && props.position[1] == 160 ||
+            props.position[0] == 160 && props.position[1] == 352 ||
+            props.position[0] == 576 && props.position[1] == 416 ||
+            props.position[0] == 192 && props.position[1] == 608 ||
+            props.position[0] == 608 && props.position[1] == 608 ){
+                const random = Math.round(Math.random() * total)
+                console.log(random)
+                _currentQuest = questList[random]
+                console.log(_currentQuest)
+            }
+
+
         // existe alguma quest na posicao atual?
-        const currentQuest = questList.find(item => props.position[0] === item.posX && props.position[1] === item.posY)
 
         // se sim, seta a quest.
-        if (currentQuest) {
-            setCurrentQuest(currentQuest)
-            props.dispatchQuest(QUEST, currentQuest)
+        if (_currentQuest != null) {
+            console.log("ENTROU AQUI")
+            setCurrentQuest(_currentQuest)
+            props.dispatchQuest(QUEST, _currentQuest)
         } else {
             setCurrentQuest(initialState)
             props.dispatchQuest(QUEST, initialState)
@@ -71,13 +94,13 @@ function Challenges(props) {
                 <div className='gridSaida box'>
                     <h3 className="boxTitle">Saída</h3>
                     <span className='info'>
-                        {currentQuest.output}
+                        {currentQuest.expectedOutput}
                     </span>
                 </div>
             </span>
         )
     }
-    
+
     return (
         <div className='text-container'>
             <div className='textbox'>

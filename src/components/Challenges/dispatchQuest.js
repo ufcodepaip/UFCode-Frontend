@@ -1,8 +1,8 @@
 export function dispatchQuest(quest, challenger) {
-    return { // Altera quesList
+    return { // Altera questList
         type: quest,
         payload: {
-            challange: challenger
+            problem: challenger
         }
     }
 }
