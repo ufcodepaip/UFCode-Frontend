@@ -5,8 +5,11 @@ import { useState, useEffect } from 'react'
 import { dispatchQuest } from './dispatchQuest'
 import { listProblems } from '../../api'
 import { QUEST } from '../../config/constants'
+import { useHistory } from 'react-router-dom'
 
 function Challenges(props) {
+    const history = useHistory();
+
     const initialState = {
         id: "cachorro 123",
         name: null,
@@ -30,6 +33,8 @@ function Challenges(props) {
     useEffect(() => {
         listProblems(_course, _module).then(res => {
             setQuestList(res.data)
+            if(res.data.length === 0)
+                history.push('/')
             console.log(res.data)
         }).catch(error => {
             console.log(error)

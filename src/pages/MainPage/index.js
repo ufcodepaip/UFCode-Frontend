@@ -4,6 +4,7 @@ import MainGame from "../../components/MainGame";
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { listCourses, listModules } from '../../api/index'
+import { listProblems } from '../../api'
 
 
 function MainPage() {
@@ -35,7 +36,18 @@ function MainPage() {
 		localStorage.setItem("name", game.name)
 		localStorage.setItem("course", game.course)
 		localStorage.setItem("module", game.module)
-		history.push("/game")
+
+		listProblems(game.course, game.module).then(res => {
+			console.log(res.data)
+            if(res.data.length !== 0){
+                history.push('/game')
+			}else{
+				alert("Não há questões para curso e módulo selecionado")
+			}
+			
+        }).catch(error => {
+			history.push('/')
+        })
 
 	}
 	return (
