@@ -9,6 +9,8 @@ import { moveToPosition } from './events'
 import { setTiles } from '../map/environment'
 import { tiles } from '../../data/maps/1'
 
+import Challenges from '../../components/Challenges'
+import ChallengeCode from '../../components/ChallengeCode'
 
 function World(props) {
 
@@ -33,27 +35,32 @@ function World(props) {
 
     //console.log('render world')
     return (
-        <div
-            style={{
-                position: 'relative',
-                width: `${MAP_WIDTH}px`,
-                height: `${MAP_HEIGHT}px`,
-                outline: '0px',
-                borderStyle: 'solid',
-                borderColor: 'white'
-            }}
-            tabIndex='-1'
-            onKeyDown={
-                (e) => {
-                    e.preventDefault()
-                    handleKeyDown(e)
+        <>
+            <div
+                style={{
+                    gridArea: 'game',
+                    position: 'relative',
+                    width: `${MAP_WIDTH}px`,
+                    height: `${MAP_HEIGHT}px`,
+                    outline: '0px',
+                    borderStyle: 'solid',
+                    borderColor: 'white'
+                }}
+                tabIndex='-1'
+                onKeyDown={
+                    (e) => {
+                        e.preventDefault()
+                        handleKeyDown(e)
+                    }
                 }
-            }
-        >
-            <Map />
-            <Player />
+            >
+                <Map />
+                <Player />
 
-        </div>
+            </div>
+            <Challenges />
+            <ChallengeCode />
+        </>
     )
 }
 

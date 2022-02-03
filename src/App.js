@@ -8,11 +8,7 @@ function App() {
   localStorage.clear()
   return (
     <div className='web-container'>
-      <div className='pages-container'>
         <Routes />
-      </div>
-        <Challenges />
-        <ChallengeCode />
     </div>
   );
 }
