@@ -46,11 +46,11 @@ function Challenges(props) {
         let _currentQuest = null
         const total = questList.length
 
-        if (props.position[0] == 512 && props.position[1] == 160 ||
-            props.position[0] == 160 && props.position[1] == 352 ||
-            props.position[0] == 576 && props.position[1] == 416 ||
-            props.position[0] == 192 && props.position[1] == 608 ||
-            props.position[0] == 608 && props.position[1] == 608 ){
+        if ((props.position[0] === 512 && props.position[1] === 160) ||
+            (props.position[0] === 160 && props.position[1] === 352) ||
+            (props.position[0] === 576 && props.position[1] === 416) ||
+            (props.position[0] === 192 && props.position[1] === 608) ||
+            (props.position[0] === 608 && props.position[1] === 608) ){
                 const random = Math.round(Math.random() * total)
                 console.log(random)
                 _currentQuest = questList[random]
@@ -75,7 +75,7 @@ function Challenges(props) {
         return (
             <span className='text'>
                 <div className='gridName box'>
-                    <h3 className="boxTitle">Nome e Area</h3>
+                    <h3 className="boxTitle">Nome e Área</h3>
                     <span className='info'>
                         {currentQuest.name}
                     </span>

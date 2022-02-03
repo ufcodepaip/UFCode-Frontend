@@ -3,8 +3,6 @@ import './style.css'
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import { submission } from '../../api/index'
-import api from '../../services/api'
-import { LOGIN } from '../../config/constants'
 
 function Challenges(props) {
     const challenge = props.challengeId
@@ -26,7 +24,7 @@ function Challenges(props) {
         console.log(jsonData)
         const response = await submission(jsonData)
         const submissionResult = response.data
-        if (submissionResult.result != 'false') {
+        if (submissionResult.result !== 'false') {
             console.log(submissionResult)
             alert("Sucesso!!!")
         } else {
@@ -34,7 +32,7 @@ function Challenges(props) {
         }
     }
 
-    const placeholder = "Ao ler a entrada, use sempre input(), sem nada dentro dos parênteses. Exemplo: int(input()) para ler um número.\nSeu programa não deve conter acentos. Caso contrário, o sistema irá apontar erro em sua solução.\nAs saídas do seu programa devem seguir o padrão exibido em 'Saída'\n\nBoa sorte!"
+    const placeholder = "Ao ler a entrada, use sempre input(), sem nenhum valor dentro dos parênteses. Exemplo: int(input()) para ler um número e convertê-lo para inteiro.\nSeu programa não deve conter acentos. Caso contrário, o sistema irá apontar erro em sua solução.\nAs saídas do seu programa devem seguir o padrão exibido em 'Saída'\n\nDivirta-se, bom jogo!"
 
     return (
         <form onSubmit={handleCodeSubmission} id='form-code'>
