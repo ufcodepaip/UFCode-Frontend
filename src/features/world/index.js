@@ -35,7 +35,7 @@ function World(props) {
 
     //console.log('render world')
     return (
-        <>
+        <div className='web-container'>
             <div
                 style={{
                     gridArea: 'game',
@@ -60,7 +60,7 @@ function World(props) {
             </div>
             <Challenges />
             <ChallengeCode />
-        </>
+        </div>
     )
 }
 

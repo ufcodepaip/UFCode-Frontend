@@ -1,10 +1,14 @@
 .game-container {
     position: 'relative';
-    width: 1280px;
-    height: 480px;
+    width: 100%;
+    height: 100vh;
     outline: 0px;
     border: 2px solid #ffffff;
-    background: 970px 560px url('../../assets/background.jpeg');
+    background: url('../../assets/background.jpeg') repeat-x left center;
+    display: inline-block;
+    -webkit-animation: displace 10s linear infinite;
+    animation: displace 10s linear infinite;
+    background-size: 100% 100%;
 }
 
 .title{
@@ -15,4 +19,27 @@
     font: 700 50px Poppins;
     margin-top: 50px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+@-webkit-keyframes displace {
+
+    from {
+      background-position: 0 center;
+    }
+  
+    to {
+      background-position: 1920px center;
+    }
+  
+  }
+  
+  @keyframes displace {
+  
+    from {
+      background-position: 0 center;
+    }
+  
+    to {
+      background-position: 1920px center;
+    }
 }
