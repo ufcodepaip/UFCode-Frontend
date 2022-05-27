@@ -7,7 +7,7 @@ import ChallengeCode from './components/ChallengeCode'
 function App() {
   localStorage.clear()
   return (
-    <div className='web-container'>
+    <div className='main-container'>
         <Routes />
     </div>
   );
