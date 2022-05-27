@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import MainPage from './pages/MainPage'
 import World from './features/world'
 import CadastroQuestoes from './pages/CadastroQuestoes'
+import ProblemsList from "./pages/ProblemsList"
 
 function routes() { // direciona os botões do menu principal
     return (
@@ -15,6 +16,7 @@ function routes() { // direciona os botões do menu principal
             <Route path='/game' component={World} />
             <Route path='/register' component={Register} />
             <Route path='/cadquest' component={CadastroQuestoes} />
+            <Route path='/listProblems' component={ProblemsList} />
         </BrowserRouter>
     )
 }
