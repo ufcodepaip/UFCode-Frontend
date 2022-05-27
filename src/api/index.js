@@ -35,6 +35,18 @@ export function listProblems(_course, _module) {
     )
 }
 
+export function listAllProblems() {
+    return (
+        axios({
+            method: "GET",
+            url: `https://ufc-code.herokuapp.com/api/problem`,
+            headers: {
+                "token": ""
+            }
+        })
+    )
+}
+
 export function submission(data){
     return (
         axios({
