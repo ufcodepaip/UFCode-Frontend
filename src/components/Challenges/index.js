@@ -11,7 +11,7 @@ function Challenges(props) {
     const history = useHistory();
 
     const initialState = {
-        id: "cachorro 123",
+        id: null,
         name: null,
         description: null,
         input: null,

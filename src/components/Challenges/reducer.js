@@ -1,7 +1,7 @@
 import { QUEST } from '../../config/constants'
 
 const initialState = {
-    id: "cachorro legal 123",
+    id: null,
     name: null,
     description: null,
     input: null,
