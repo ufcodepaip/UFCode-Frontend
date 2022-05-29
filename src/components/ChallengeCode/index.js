@@ -22,14 +22,15 @@ function Challenges(props) {
         }
 
         console.log(jsonData)
-        const response = await submission(jsonData)
-        const submissionResult = response.data
-        if (submissionResult.result !== 'false') {
-            console.log(submissionResult)
-            alert("Sucesso!!!")
-        } else {
-            alert("Erro. Razão do erro: \n\n\n" + submissionResult.error)
-        }
+        await submission(jsonData).then( res => {
+            if(res.data.error ==! false)
+                alert("Sucesso!!!")
+            else
+                alert("Erro. Razão do erro: \n\n\n" + res.data.error)
+
+        }).catch(error => {
+            alert("Erro. Razão do erro: \n sintaxe do código incorreta \n" + error)
+        })
     }
 
     const placeholder = "Ao ler a entrada, use sempre input(), sem nenhum valor dentro dos parênteses. Exemplo: int(input()) para ler um número e convertê-lo para inteiro.\nSeu programa não deve conter acentos. Caso contrário, o sistema irá apontar erro em sua solução.\nAs saídas do seu programa devem seguir o padrão exibido em 'Saída'\n\nDivirta-se, bom jogo!"
