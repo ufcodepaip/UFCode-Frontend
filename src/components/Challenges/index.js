@@ -29,6 +29,7 @@ function Challenges(props) {
     const login = localStorage.getItem("name")
     const _course = localStorage.getItem("course")
     const _module = localStorage.getItem("module")
+    const [positionQuest, setPositionQuest] = useState(0)
 
     useEffect(() => {
         listProblems(_course, _module).then(res => {
@@ -51,10 +52,17 @@ function Challenges(props) {
             (props.position[0] === 576 && props.position[1] === 416) ||
             (props.position[0] === 192 && props.position[1] === 608) ||
             (props.position[0] === 608 && props.position[1] === 608) ){
-                const random = Math.round(Math.random() * total)
-                console.log(random)
-                _currentQuest = questList[random]
+                
+                if(positionQuest == total){
+                    setPositionQuest(0)
+                }else{
+                    setPositionQuest(positionQuest + 1)
+                
                 console.log(_currentQuest)
+                }
+                _currentQuest = questList[positionQuest]
+                console.log(positionQuest)
+                
             }
 
 
