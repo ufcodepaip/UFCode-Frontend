@@ -3,6 +3,7 @@ import './style.css'
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import { submission } from '../../api/index'
+import Editor from '@monaco-editor/react'
 
 function Challenges(props) {
     const challenge = props.challengeId
@@ -25,8 +26,11 @@ function Challenges(props) {
             }
     
             console.log(jsonData)
+            
             await submission(jsonData).then( res => {
-                if(res.data.error ==! false)
+                console.log(res.data)
+                console.log("res.data.error  " + res.data.error)
+                if(res.data.error === 'false')
                     alert("Sucesso!!!")
                 else
                     alert("Erro. Razão do erro: \n\n\n" + res.data.error)
@@ -43,8 +47,14 @@ function Challenges(props) {
     return (
         <form onSubmit={handleCodeSubmission} id='form-code'>
             <div className='code-container'>
-                <p className='text-questao'> UFCODE: </p>
-                <textarea value={code} onChange={e => setCode(e.target.value)} type='textarea' placeholder={placeholder} rows='5' cols='5' className='textarea-questao' />
+                <Editor 
+                    height='650px'
+                    theme='vs-dark'
+                    defaultLanguage='python'
+                    value={code}
+                    onChange={(value) => setCode(value)}
+                />
+
                 <input type='button' onClick={() => setCode("")} className='btn-questao' value='Limpar' />
                 <button type='submit' value='enviar' className='btn-questao' > Enviar </button>
             </div>
