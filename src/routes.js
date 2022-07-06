@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Redirect, Route } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import MainPage from './pages/MainPage'
@@ -13,6 +13,7 @@ function routes() { // direciona os botões do menu principal
         <BrowserRouter>
             <Route path="/" exact component={MainPage} />
             <Route path="/login" component={Login} />
+            { localStorage.getItem("name") ? <Route path='/game' component={World} /> : (<Redirect path='/login'/>)}
             <Route path='/game' component={World} />
             <Route path='/register' component={Register} />
             <Route path='/cadquest' component={CadastroQuestoes} />

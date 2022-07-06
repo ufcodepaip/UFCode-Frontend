@@ -24,6 +24,21 @@ function Challenges(props) {
         modules: null
     }
 
+    const constructionState = {
+        id: null,
+        name: "Questão em Construção",
+        description: "Olá, ficamos felizes que tenha chegado até aqui, no momento nossa casa ainda está em construção, em breve traremos novos desafios para você :)",
+        input: null,
+        expectedOutput: null,
+        houseId: null,
+        positionX: null,
+        positionY: null,
+        difficultyId: null,
+        courses: null,
+        modules: null
+
+    }
+
     const [currentQuest, setCurrentQuest] = useState(initialState)
     const [questList, setQuestList] = useState([])
     const login = localStorage.getItem("name")
@@ -42,35 +57,86 @@ function Challenges(props) {
         })
     }, [login])
 
+
+    const changeProblem = (_currentQuest, total) =>{
+        if(positionQuest == total){
+            setPositionQuest(0)
+        }else{
+            setPositionQuest(positionQuest + 1)
+        
+        console.log(_currentQuest)
+        }
+        return _currentQuest = questList[positionQuest]
+        console.log(positionQuest)
+    }
+
+    const haveQuestion = () => {
+        if(props.position[0] === 512 && props.position[1] === 160)
+            return true
+        if (props.position[0] === 160 && props.position[1] === 352)
+            return true
+        if (props.position[0] === 576 && props.position[1] === 416)
+            return true
+        if (props.position[0] === 192 && props.position[1] === 608)
+            return true
+        if (props.position[0] === 608 && props.position[1] === 608)
+            return true
+        else
+            return false
+    }
+
     useEffect(() => {
 
         let _currentQuest = null
         const total = questList.length
 
-        if ((props.position[0] === 512 && props.position[1] === 160) ||
-            (props.position[0] === 160 && props.position[1] === 352) ||
-            (props.position[0] === 576 && props.position[1] === 416) ||
-            (props.position[0] === 192 && props.position[1] === 608) ||
-            (props.position[0] === 608 && props.position[1] === 608) ){
-                
-                if(positionQuest == total){
-                    setPositionQuest(0)
-                }else{
-                    setPositionQuest(positionQuest + 1)
-                
-                console.log(_currentQuest)
-                }
-                _currentQuest = questList[positionQuest]
-                console.log(positionQuest)
-                
+        if (props.position[0] === 512 && props.position[1] === 160){
+            if(questList[0] != null){
+                _currentQuest = questList[0]
+            }else{
+                _currentQuest = constructionState
             }
+            console.log(_currentQuest)
+        }
+        if (props.position[0] === 160 && props.position[1] === 352){
+            if(questList[1] != null){
+                _currentQuest = questList[1]
+            }else{
+                _currentQuest = constructionState
+            }
+            console.log(_currentQuest)
+        }
+        if (props.position[0] === 576 && props.position[1] === 416){
+            if(questList[2] != null){
+                _currentQuest = questList[2]
+            }else{
+                _currentQuest = constructionState
+            }
+            console.log(_currentQuest)
 
+        }
+        if (props.position[0] === 192 && props.position[1] === 608){
+            if(questList[3] != null){
+                _currentQuest = questList[3]
+            }else{
+                _currentQuest = constructionState
+            }
+            console.log(_currentQuest)
 
+        }
+        if (props.position[0] === 608 && props.position[1] === 608){
+            if(questList[4] != null){
+                _currentQuest = questList[4]
+            }else{
+                _currentQuest = constructionState
+            }
+            console.log(_currentQuest)
+
+        }
         // existe alguma quest na posicao atual?
-
         // se sim, seta a quest.
         if (_currentQuest != null) {
-            console.log("ENTROU AQUI")
+            console.log("Current quest??")
             setCurrentQuest(_currentQuest)
             props.dispatchQuest(QUEST, _currentQuest)
         } else {
